@@ -1,11 +1,12 @@
 class Yatzy:
 
     @staticmethod
-    def chance(d1, d2, d3, d4, d5):
+    def chance(dice_rolls):
         '''
         Para ahorrar lineas de código, en el propio return se hizo la suma total (Mover todo a una sola línea).
+        Se convirtieron los argumentos de entrada a una lista.
         '''
-        return (d1 + d2 + d3 + d4 + d5)
+        return sum(dice_rolls)
 
 
     @staticmethod

@@ -8,10 +8,11 @@ from src.yatzy1 import Yatzy
 def test_chance():
     '''
     Se eliminaron las variables innecesarias.
+    Se convirtieron los argumentos de entrada a una lista.
     '''
-    assert 15 == Yatzy.chance(3, 2, 4, 5, 1)
-    assert 16 == Yatzy.chance(3, 3, 4, 5, 1)
-    assert 5 == Yatzy.chance(1, 1, 1, 1, 1)
+    assert 15 == Yatzy.chance([3, 2, 4, 5, 1])
+    assert 16 == Yatzy.chance([3, 3, 4, 5, 1])
+    assert 5 == Yatzy.chance([1, 1, 1, 1, 1])
 
 
 def test_all_same():
