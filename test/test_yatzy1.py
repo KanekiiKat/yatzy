@@ -5,10 +5,11 @@ from src.yatzy1 import Yatzy
 # These unit tests can be run using the py.test framework
 # available from http://pytest.org/
 
-def test_chance_scores_sum_of_all_dice():
-    expected = 15
-    actual = Yatzy.chance(2, 3, 4, 5, 1)
-    assert expected == actual
+def test_chance():
+    '''
+    Se eliminaron las variables innecesarias.
+    '''
+    assert 15 == Yatzy.chance(3, 2, 4, 5, 1)
     assert 16 == Yatzy.chance(3, 3, 4, 5, 1)
 
 
