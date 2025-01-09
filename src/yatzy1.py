@@ -24,6 +24,10 @@ class Yatzy:
 
     @staticmethod
     def ones(dice_rolls):
+        '''
+        Cambiado el argumento de entrada por una lista.
+        Todos los ifs reemplazados por un método count.
+        '''
         return dice_rolls.count(1)
 
 
