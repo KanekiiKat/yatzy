@@ -29,11 +29,16 @@ def test_all_same():
     assert 0 == Yatzy.all_same([5, 6, 5, 6, 5])
 
 
-def test_1s():
-    assert Yatzy.ones(1, 2, 3, 4, 5) == 1
-    assert 2 == Yatzy.ones(1, 2, 1, 4, 5)
-    assert 0 == Yatzy.ones(6, 2, 2, 4, 5)
-    assert 4 == Yatzy.ones(1, 2, 1, 1, 1)
+def test_ones():
+    '''
+    Cambiamos el nombre al mismo de la función de la clase.
+    Colocamos el resultado del primer assert.
+    Convertimos todos los argumentos en una lista.
+    '''
+    assert 1 == Yatzy.ones([1, 2, 3, 4, 5])
+    assert 2 == Yatzy.ones([1, 2, 1, 4, 5])
+    assert 0 == Yatzy.ones([6, 2, 2, 4, 5])
+    assert 4 == Yatzy.ones([1, 2, 1, 1, 1])
 
 
 def test_2s():
