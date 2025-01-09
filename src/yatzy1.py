@@ -9,14 +9,17 @@ class Yatzy:
 
 
     @staticmethod
-    def yatzy(dice):
-        counts = [0] * (len(dice) + 1)
-        for die in dice:
-            counts[die - 1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
-                return 50
-        return 0
+    def all_same(dice_rolls):
+        '''
+        Se ha renombrado la función para que no comparta nombre con el archivo python.
+        El cóodigo era innecesariamente complejo para la operación que estaba tratando de devolver.
+        Se ha simplificado a una operación más barata y comprensible.
+        '''
+        if dice_rolls.count(dice_rolls[0]) == 5:
+            return 50
+        else:
+            return 0
+
 
     @staticmethod
     def ones(d1, d2, d3, d4, d5):

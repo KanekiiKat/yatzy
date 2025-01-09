@@ -11,14 +11,21 @@ def test_chance():
     '''
     assert 15 == Yatzy.chance(3, 2, 4, 5, 1)
     assert 16 == Yatzy.chance(3, 3, 4, 5, 1)
+    assert 5 == Yatzy.chance(1, 1, 1, 1, 1)
 
 
-def test_yatzy_scores_50():
-    expected = 50
-    actual = Yatzy.yatzy([4, 4, 4, 4, 4])
-    assert expected == actual
-    assert 50 == Yatzy.yatzy([6, 6, 6, 6, 6])
-    assert 0 == Yatzy.yatzy([6, 6, 6, 6, 3])
+def test_all_same():
+    '''
+    Renombrado para acortar el nombre del test y darle mayor claridad.
+    Eliminadas variables redundantes para simplificar los tests.
+    Añadidos test adicionales.
+    '''
+    assert 50 == Yatzy.all_same([1, 1, 1, 1, 1])
+    assert 50 == Yatzy.all_same([4, 4, 4, 4, 4])
+    assert 50 == Yatzy.all_same([5, 5, 5, 5, 5])
+    assert 50 == Yatzy.all_same([6, 6, 6, 6, 6])
+    assert 0 == Yatzy.all_same([6, 6, 6, 6, 3])
+    assert 0 == Yatzy.all_same([5, 6, 5, 6, 5])
 
 
 def test_1s():
