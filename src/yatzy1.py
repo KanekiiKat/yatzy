@@ -77,18 +77,15 @@ class Yatzy:
         SIX = Pips.SIX.value
         return dice_rolls.count(SIX) * SIX
 
-    def score_pair(self, d1, d2, d3, d4, d5):
-        counts = [0] * 6
-        counts[d1 - 1] += 1
-        counts[d2 - 1] += 1
-        counts[d3 - 1] += 1
-        counts[d4 - 1] += 1
-        counts[d5 - 1] += 1
-        at = 0
-        for at in range(6):
-            if (counts[6 - at - 1] == 2):
-                return (6 - at) * 2
-        return 0
+    def score_pair(*dice_rolls):
+        return die * 2  if dice_rolls.count(die) == 2 for die in dice_rolls else ZERO      
+        '''
+        for die in dice_rolls:
+            if dice_rolls.count(die) == 2:
+                pairs.append(die)
+        if pairs: return max(pairs) * 2
+        return Yatzy.ZERO'''
+
 
     @staticmethod
     def two_pair(d1, d2, d3, d4, d5):

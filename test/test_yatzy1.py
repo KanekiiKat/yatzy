@@ -50,7 +50,7 @@ def test_twos():
     assert 4 == Yatzy.twos(1, 2, 3, 2, 6)
     assert 10 == Yatzy.twos(2, 2, 2, 2, 2)
 
-
+@pytest.mark.threes
 def test_threes():
     '''
     Añadidos tests nuevos
@@ -60,8 +60,8 @@ def test_threes():
     assert 12 == Yatzy.threes(2, 3, 3, 3, 3)
     assert 15 == Yatzy.threes(3, 3, 3, 3, 3)
 
-
-def test_fours_test():
+@pytest.mark.fours
+def test_fours():
     '''
     Añadidos tests nuevos
     '''
@@ -70,7 +70,7 @@ def test_fours_test():
     assert 8 == Yatzy.fours(4, 4, 5, 5, 5)
     assert 4 == Yatzy.fours(4, 5, 5, 5, 5)
 
-
+@pytest.mark.fives
 def test_fives():
     '''
     Añadidos tests nuevos
@@ -80,8 +80,8 @@ def test_fives():
     assert 15 == Yatzy.fives(4, 4, 5, 5, 5)
     assert 20 == Yatzy.fives(4, 5, 5, 5, 5)
 
-
-def test_sixes_test():
+@pytest.mark.sixes
+def test_sixes():
     '''
     Añadidos tests nuevos
     '''
@@ -92,9 +92,14 @@ def test_sixes_test():
 
 
 def test_one_pair():
-    assert 6 == Yatzy().score_pair(3, 4, 3, 5, 6)
-    assert 10 == Yatzy().score_pair(5, 3, 3, 3, 5)
-    assert 12 == Yatzy().score_pair(5, 3, 6, 6, 5)
+    '''
+    Añadidos tests nuevos
+    '''
+    assert 0 == Yatzy.score_pair(6, 4, 3, 5, 2)
+    assert 2 == Yatzy.score_pair(1, 4, 2, 5, 1)
+    assert 6 == Yatzy.score_pair(3, 4, 3, 5, 6)
+    assert 10 == Yatzy.score_pair(5, 3, 3, 3, 5)
+    assert 12 == Yatzy.score_pair(5, 3, 6, 6, 5)
 
 
 def test_two_Pair():
