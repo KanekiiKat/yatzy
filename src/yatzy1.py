@@ -1,7 +1,12 @@
+from pips import Pips
+
 class Yatzy:
 
+    ZERO = 0
+    FIFTY = 50
+
     @staticmethod
-    def chance(dice_rolls):
+    def chance(*dice_rolls):
         '''
         Para ahorrar lineas de código, en el propio return se hizo la suma total (Mover todo a una sola línea).
         Se convirtieron los argumentos de entrada a una lista.
@@ -10,25 +15,25 @@ class Yatzy:
 
 
     @staticmethod
-    def all_same(dice_rolls):
+    def yatzy(*dice_rolls):
         '''
-        Se ha renombrado la función para que no comparta nombre con el archivo python.
         El cóodigo era innecesariamente complejo para la operación que estaba tratando de devolver.
         Se ha simplificado a una operación más barata y comprensible.
         '''
         if dice_rolls.count(dice_rolls[0]) == 5:
-            return 50
+            return Yatzy.FIFTY
         else:
-            return 0
+            return Yatzy.ZERO
 
 
     @staticmethod
-    def ones(dice_rolls):
+    def ones(*dice_rolls):
         '''
         Cambiado el argumento de entrada por una lista.
         Todos los ifs reemplazados por un método count.
         '''
-        return dice_rolls.count(1)
+        ONE = Pips.ONE.value
+        return dice_rolls.count(ONE)
 
 
     @staticmethod

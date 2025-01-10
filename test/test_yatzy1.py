@@ -1,7 +1,6 @@
 import pytest
 from src.yatzy1 import Yatzy
 
-
 # These unit tests can be run using the py.test framework
 # available from http://pytest.org/
 
@@ -10,23 +9,23 @@ def test_chance():
     Se eliminaron las variables innecesarias.
     Se convirtieron los argumentos de entrada a una lista.
     '''
-    assert 15 == Yatzy.chance([3, 2, 4, 5, 1])
-    assert 16 == Yatzy.chance([3, 3, 4, 5, 1])
-    assert 5 == Yatzy.chance([1, 1, 1, 1, 1])
+    assert 15 == Yatzy.chance(3, 2, 4, 5, 1)
+    assert 16 == Yatzy.chance(3, 3, 4, 5, 1)
+    assert 5 == Yatzy.chance(1, 1, 1, 1, 1)
 
 
-def test_all_same():
+def test_yatzy():
     '''
     Renombrado para acortar el nombre del test y darle mayor claridad.
     Eliminadas variables redundantes para simplificar los tests.
     Añadidos test adicionales.
     '''
-    assert 50 == Yatzy.all_same([1, 1, 1, 1, 1])
-    assert 50 == Yatzy.all_same([4, 4, 4, 4, 4])
-    assert 50 == Yatzy.all_same([5, 5, 5, 5, 5])
-    assert 50 == Yatzy.all_same([6, 6, 6, 6, 6])
-    assert 0 == Yatzy.all_same([6, 6, 6, 6, 3])
-    assert 0 == Yatzy.all_same([5, 6, 5, 6, 5])
+    assert 50 == Yatzy.yatzy(1, 1, 1, 1, 1)
+    assert 50 == Yatzy.yatzy(4, 4, 4, 4, 4)
+    assert 50 == Yatzy.yatzy(5, 5, 5, 5, 5)
+    assert 50 == Yatzy.yatzy(6, 6, 6, 6, 6)
+    assert 0 == Yatzy.yatzy(6, 6, 6, 6, 3)
+    assert 0 == Yatzy.yatzy(5, 6, 5, 6, 5)
 
 
 def test_ones():
@@ -35,10 +34,10 @@ def test_ones():
     Colocamos el resultado del primer assert.
     Convertimos todos los argumentos en una lista.
     '''
-    assert 1 == Yatzy.ones([1, 2, 3, 4, 5])
-    assert 2 == Yatzy.ones([1, 2, 1, 4, 5])
-    assert 0 == Yatzy.ones([6, 2, 2, 4, 5])
-    assert 4 == Yatzy.ones([1, 2, 1, 1, 1])
+    assert 1 == Yatzy.ones(1, 2, 3, 4, 5)
+    assert 2 == Yatzy.ones(1, 2, 1, 4, 5)
+    assert 0 == Yatzy.ones(6, 2, 2, 4, 5)
+    assert 4 == Yatzy.ones(1, 2, 1, 1, 1)
 
 
 def test_2s():
