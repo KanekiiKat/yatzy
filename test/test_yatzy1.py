@@ -52,26 +52,43 @@ def test_twos():
 
 
 def test_threes():
+    '''
+    Añadidos tests nuevos
+    '''
+    assert 0 == Yatzy.threes(1, 4, 5, 2, 4)
     assert 6 == Yatzy.threes(1, 2, 3, 2, 3)
     assert 12 == Yatzy.threes(2, 3, 3, 3, 3)
+    assert 15 == Yatzy.threes(3, 3, 3, 3, 3)
 
 
 def test_fours_test():
-    assert 12 == Yatzy(4, 4, 4, 5, 5).fours()
-    assert 8 == Yatzy(4, 4, 5, 5, 5).fours()
-    assert 4 == Yatzy(4, 5, 5, 5, 5).fours()
+    '''
+    Añadidos tests nuevos
+    '''
+    assert 0 == Yatzy.fours(1, 1, 5, 2, 2)
+    assert 12 == Yatzy.fours(4, 4, 4, 5, 5)
+    assert 8 == Yatzy.fours(4, 4, 5, 5, 5)
+    assert 4 == Yatzy.fours(4, 5, 5, 5, 5)
 
 
 def test_fives():
-    assert 10 == Yatzy(4, 4, 4, 5, 5).fives()
-    assert 15 == Yatzy(4, 4, 5, 5, 5).fives()
-    assert 20 == Yatzy(4, 5, 5, 5, 5).fives()
+    '''
+    Añadidos tests nuevos
+    '''
+    assert 0 == Yatzy.fives(1, 4, 6, 2, 4)
+    assert 10 == Yatzy.fives(4, 4, 4, 5, 5)
+    assert 15 == Yatzy.fives(4, 4, 5, 5, 5)
+    assert 20 == Yatzy.fives(4, 5, 5, 5, 5)
 
 
 def test_sixes_test():
-    assert 0 == Yatzy(4, 4, 4, 5, 5).sixes()
-    assert 6 == Yatzy(4, 4, 6, 5, 5).sixes()
-    assert 18 == Yatzy(6, 5, 6, 6, 5).sixes()
+    '''
+    Añadidos tests nuevos
+    '''
+    assert 0 == Yatzy.sixes(4, 4, 4, 5, 5)
+    assert 12 == Yatzy.sixes(4, 4, 4, 6, 6)
+    assert 6 == Yatzy.sixes(4, 4, 6, 5, 5)
+    assert 18 == Yatzy.sixes(6, 5, 6, 6, 5)
 
 
 def test_one_pair():
