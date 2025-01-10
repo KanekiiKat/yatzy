@@ -1,4 +1,4 @@
-from pips import Pips
+from src.pips import Pips
 
 class Yatzy:
 
@@ -9,7 +9,7 @@ class Yatzy:
     def chance(*dice_rolls):
         '''
         Para ahorrar lineas de código, en el propio return se hizo la suma total (Mover todo a una sola línea).
-        Se convirtieron los argumentos de entrada a una lista.
+        Se convirtieron los argumentos de entrada a una tupla.
         '''
         return sum(dice_rolls)
 
@@ -29,7 +29,7 @@ class Yatzy:
     @staticmethod
     def ones(*dice_rolls):
         '''
-        Cambiado el argumento de entrada por una lista.
+        Cambiado el argumento de entrada por una tupla.
         Todos los ifs reemplazados por un método count.
         '''
         ONE = Pips.ONE.value
@@ -37,19 +37,14 @@ class Yatzy:
 
 
     @staticmethod
-    def twos(d1, d2, d3, d4, d5):
-        sum = 0
-        if (d1 == 2):
-            sum += 2
-        if (d2 == 2):
-            sum += 2
-        if (d3 == 2):
-            sum += 2
-        if (d4 == 2):
-            sum += 2
-        if (d5 == 2):
-            sum += 2
-        return sum
+    def twos(*dice_rolls):
+        '''
+        Cambiado argumento de entrada por una tupla
+        Ifs reemplazados por método count a modo de simplificación.
+        '''
+        TWO = Pips.TWO.value
+        return dice_rolls.count(TWO) * TWO
+
 
     @staticmethod
     def threes(d1, d2, d3, d4, d5):

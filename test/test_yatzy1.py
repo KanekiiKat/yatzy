@@ -4,6 +4,7 @@ from src.yatzy1 import Yatzy
 # These unit tests can be run using the py.test framework
 # available from http://pytest.org/
 
+@pytest.mark.chance
 def test_chance():
     '''
     Se eliminaron las variables innecesarias.
@@ -13,7 +14,7 @@ def test_chance():
     assert 16 == Yatzy.chance(3, 3, 4, 5, 1)
     assert 5 == Yatzy.chance(1, 1, 1, 1, 1)
 
-
+@pytest.mark.yatzy
 def test_yatzy():
     '''
     Renombrado para acortar el nombre del test y darle mayor claridad.
@@ -27,7 +28,7 @@ def test_yatzy():
     assert 0 == Yatzy.yatzy(6, 6, 6, 6, 3)
     assert 0 == Yatzy.yatzy(5, 6, 5, 6, 5)
 
-
+@pytest.mark.ones
 def test_ones():
     '''
     Cambiamos el nombre al mismo de la función de la clase.
@@ -39,8 +40,13 @@ def test_ones():
     assert 0 == Yatzy.ones(6, 2, 2, 4, 5)
     assert 4 == Yatzy.ones(1, 2, 1, 1, 1)
 
-
-def test_2s():
+@pytest.mark.twos
+def test_twos():
+    '''
+    Renombrado test.
+    Añadido test adicional.
+    '''
+    assert 0 == Yatzy.twos(1, 4, 5, 3, 4)
     assert 4 == Yatzy.twos(1, 2, 3, 2, 6)
     assert 10 == Yatzy.twos(2, 2, 2, 2, 2)
 
