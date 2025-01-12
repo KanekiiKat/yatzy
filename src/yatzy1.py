@@ -78,14 +78,11 @@ class Yatzy:
         return dice_rolls.count(SIX) * SIX
 
     def score_pair(*dice_rolls):
-        return die * 2  if dice_rolls.count(die) == 2 for die in dice_rolls else ZERO      
         '''
-        for die in dice_rolls:
-            if dice_rolls.count(die) == 2:
-                pairs.append(die)
-        if pairs: return max(pairs) * 2
-        return Yatzy.ZERO'''
-
+        Refactorizado en una comprensión.
+        Cambiado argumento de entrada.
+        '''
+        return max([die * 2 for die in dice_rolls if dice_rolls.count(die) == 2], default=Yatzy.ZERO)
 
     @staticmethod
     def two_pair(d1, d2, d3, d4, d5):
