@@ -61,6 +61,8 @@ class Yatzy:
         self.dice[3] = d4
         self.dice[4] = _5
 
+
+    @staticmethod
     def fours(*dice_rolls):
         '''
         Dejamos de emplear el self.
@@ -69,40 +71,37 @@ class Yatzy:
         FOUR = Pips.FOUR.value
         return dice_rolls.count(FOUR) * FOUR
 
+
+    @staticmethod
     def fives(*dice_rolls):
         FIVE = Pips.FIVE.value
         return dice_rolls.count(FIVE) * FIVE
 
+
+    @staticmethod
     def sixes(*dice_rolls):
         SIX = Pips.SIX.value
         return dice_rolls.count(SIX) * SIX
 
+
+    @staticmethod
     def score_pair(*dice_rolls):
         '''
         Refactorizado en una comprensión.
         Cambiado argumento de entrada.
         '''
-        return max([die * 2 for die in dice_rolls if dice_rolls.count(die) == 2], default=Yatzy.ZERO)
+        return max([die * 2 for die in dice_rolls if dice_rolls.count(die) >= 2], default=Yatzy.ZERO)
+
 
     @staticmethod
-    def two_pair(d1, d2, d3, d4, d5):
-        counts = [0] * 6
-        counts[d1 - 1] += 1
-        counts[d2 - 1] += 1
-        counts[d3 - 1] += 1
-        counts[d4 - 1] += 1
-        counts[d5 - 1] += 1
-        n = 0
-        score = 0
-        for i in range(6):
-            if (counts[6 - i - 1] >= 2):
-                n = n + 1
-                score += (6 - i)
+    def two_pair(*dice_rolls):
+        '''
+        Refactorización en comprensiones.
+        Cambiado el argumento de entrada a una tupla.
+        '''
+        pairs = [die * 2 for die in set(dice_rolls) if dice_rolls.count(die) >= 2 and dice_rolls.count(die) < 4]
+        return sum(pairs) if len(pairs) == 2 else Yatzy.ZERO
 
-        if (n == 2):
-            return score * 2
-        else:
-            return 0
 
     @staticmethod
     def four_of_a_kind(_1, _2, d3, d4, d5):
