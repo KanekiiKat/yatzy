@@ -113,7 +113,7 @@ def test_two_Pair():
     assert 0 == Yatzy.two_pair(3, 3, 6, 5, 4)
     assert 0 == Yatzy.two_pair(6, 3, 6, 6, 6)
 
-
+@pytest.mark.three_kind
 def test_three_of_a_kind():
     '''
     Añadido test nuevo
@@ -123,26 +123,32 @@ def test_three_of_a_kind():
     assert 15 == Yatzy.three_of_a_kind(5, 3, 5, 4, 5)
     assert 9 == Yatzy.three_of_a_kind(3, 3, 3, 3, 5)
 
-
+@pytest.mark.four_kind
 def test_four_of_a_kind():
     assert 12 == Yatzy.four_of_a_kind(3, 3, 3, 3, 5)
     assert 20 == Yatzy.four_of_a_kind(5, 5, 5, 4, 5)
     assert 12 == Yatzy.four_of_a_kind(3, 3, 3, 3, 3)
     assert 0 == Yatzy.four_of_a_kind(3, 3, 3, 2, 1)
 
-
+@pytest.mark.small
 def test_smallStraight():
     assert 15 == Yatzy.smallStraight(1, 2, 3, 4, 5)
     assert 15 == Yatzy.smallStraight(2, 3, 4, 5, 1)
     assert 0 == Yatzy.smallStraight(1, 2, 2, 4, 5)
 
-
+@pytest.mark.large
 def test_largeStraight():
     assert 20 == Yatzy.largeStraight(6, 2, 3, 4, 5)
     assert 20 == Yatzy.largeStraight(2, 3, 4, 5, 6)
     assert 0 == Yatzy.largeStraight(1, 2, 2, 4, 5)
 
-
+@pytest.mark.full
 def test_fullHouse():
+    '''
+    Añadidos tests adicionales
+    '''
+    assert 0 == Yatzy.fullHouse(5, 5, 5, 5, 5)
     assert 18 == Yatzy.fullHouse(6, 2, 2, 2, 6)
+    assert 22 == Yatzy.fullHouse(6, 2, 6, 2, 6)
     assert 0 == Yatzy.fullHouse(2, 3, 4, 5, 6)
+    assert 0 == Yatzy.fullHouse(5, 5, 5, 5, 4)

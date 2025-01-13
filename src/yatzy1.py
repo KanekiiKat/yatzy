@@ -104,6 +104,7 @@ class Yatzy:
         pairs = [die * 2 for die in set(dice_rolls) if dice_rolls.count(die) >= 2 and dice_rolls.count(die) < 4]
         return sum(pairs) if len(pairs) == 2 else Yatzy.ZERO
 
+
     @staticmethod
     def three_of_a_kind(*dice_rolls):
         '''
@@ -112,6 +113,7 @@ class Yatzy:
         '''
         threes = [die * 3 if dice_rolls.count(die) >= 3 else Yatzy.ZERO for die in dice_rolls]
         return threes[0]
+
 
     @staticmethod
     def four_of_a_kind(*dice_rolls):
@@ -123,50 +125,28 @@ class Yatzy:
         return four[0]
 
 
-
     @staticmethod
     def smallStraight(*dice_rolls):
         '''
         Refactorizado a una comprensión.
         Camiado el argumento de entrada.
         '''
-        return Yatzy.FIFTEEN if 6 not in set(dice_rolls) and len(set(dice_rolls)) == 5 else Yatzy.ZERO
-        
+        return Yatzy.FIFTEEN if Pips.SIX.value not in set(dice_rolls) and len(set(dice_rolls)) == 5 else Yatzy.ZERO
+
+
     @staticmethod
     def largeStraight(*dice_rolls):
         '''
         Refactorizado a una comprensión.
         Camiado el argumento de entrada.
         '''
-        return Yatzy.TWENTY if 1 not in set(dice_rolls) and len(set(dice_rolls)) == 5 else Yatzy.ZERO
+        return Yatzy.TWENTY if Pips.ONE.value not in set(dice_rolls) and len(set(dice_rolls)) == 5 else Yatzy.ZERO
+
 
     @staticmethod
-    def fullHouse(d1, d2, d3, d4, d5):
-        tallies = []
-        _2 = False
-        i = 0
-        _2_at = 0
-        _3 = False
-        _3_at = 0
-
-        tallies = [0] * 6
-        tallies[d1 - 1] += 1
-        tallies[d2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
-
-        for i in range(6):
-            if (tallies[i] == 2):
-                _2 = True
-                _2_at = i + 1
-
-        for i in range(6):
-            if (tallies[i] == 3):
-                _3 = True
-                _3_at = i + 1
-
-        if (_2 and _3):
-            return _2_at * 2 + _3_at * 3
-        else:
-            return 0
+    def fullHouse(*dice_rolls):
+        '''
+        Refactorizado a una comprensión.
+        Camiado el argumento de entrada.
+        '''
+        return sum(die if dice_rolls.count(die) >= 2 and dice_rolls.count(die) <= 3 else Yatzy.ZERO for die in dice_rolls)
