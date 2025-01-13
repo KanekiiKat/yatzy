@@ -102,32 +102,25 @@ class Yatzy:
         pairs = [die * 2 for die in set(dice_rolls) if dice_rolls.count(die) >= 2 and dice_rolls.count(die) < 4]
         return sum(pairs) if len(pairs) == 2 else Yatzy.ZERO
 
+    @staticmethod
+    def three_of_a_kind(*dice_rolls):
+        '''
+        Refactorizado a una comprensión de lista,
+        Camiado el argumento de entrada.
+        '''
+        threes = [die * 3 if dice_rolls.count(die) >= 3 else Yatzy.ZERO for die in dice_rolls]
+        return threes[0]
 
     @staticmethod
-    def four_of_a_kind(_1, _2, d3, d4, d5):
-        tallies = [0] * 6
-        tallies[_1 - 1] += 1
-        tallies[_2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
-        for i in range(6):
-            if (tallies[i] >= 4):
-                return (i + 1) * 4
-        return 0
+    def four_of_a_kind(*dice_rolls):
+        '''
+        Refactorizado a una comprensión de lista
+        Camiado el argumento de entrada.
+        '''
+        four = [die * 4 if dice_rolls.count(die) >= 4 else Yatzy.ZERO for die in dice_rolls]
+        return four[0]
 
-    @staticmethod
-    def three_of_a_kind(d1, d2, d3, d4, d5):
-        t = [0] * 6
-        t[d1 - 1] += 1
-        t[d2 - 1] += 1
-        t[d3 - 1] += 1
-        t[d4 - 1] += 1
-        t[d5 - 1] += 1
-        for i in range(6):
-            if (t[i] >= 3):
-                return (i + 1) * 3
-        return 0
+
 
     @staticmethod
     def smallStraight(d1, d2, d3, d4, d5):
